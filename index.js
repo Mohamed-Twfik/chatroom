@@ -17,15 +17,15 @@ const io = socketio(server)
 
 io.on("connection", socket=>{
     console.log("new user connected")
-
     socket.username = "Anonymous"
+    
+    socket.broadcast.emit("new_user_connected")
 
     socket.on("change_name", data=>{
         socket.username = data.username
     })
 
     socket.on("send_message", data=>{
-        // console.log("new message")
         io.sockets.emit("receive_message", {username:socket.username, message:data.message})
     })
 
