@@ -16,7 +16,6 @@ const server = app.listen(port, ()=>{console.log("Server listen at port " + port
 const io = socketio(server)
 
 io.on("connection", socket=>{
-    console.log("new user connected")
     socket.username = "Anonymous"
     
     socket.broadcast.emit("new_user_connected")
