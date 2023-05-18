@@ -1,5 +1,5 @@
 (function connect(){
-    let socket = io.connect('http://localhost:3000')
+    let socket = io.connect('https://chatroom-kji2.onrender.com')
 
     let usernameInput = document.querySelector("#username")
     let usernameButton = document.querySelector("#usernameBtn")
